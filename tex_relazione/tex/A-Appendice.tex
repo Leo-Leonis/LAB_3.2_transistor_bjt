@@ -1,0 +1,53 @@
+\section{Dati raccolti} \label{ch:data}
+\noindent I valori misurati delle correnti di base misurati sono $I_{B_1} = -(0.05 \pm 0.02)$ \si{\milli\ampere} e $I_{B_2} = -(0.10 \pm 0.02)$ \si{\milli\ampere}. I dati misurati relativi alle caratteristiche $I_C$-$V_{CE}$ sono riportati in \autoref{tab:data}. 
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{||c|c||c|c||c|c||}
+        \hline \hline
+        \multicolumn{6}{||c||}{\textsc{caratteristiche i-v in uscita}} \\
+        \hline \hline
+         & & \multicolumn{2}{c||}{$I_{B_1} = -50$ \si{\micro\ampere}} & \multicolumn{2}{c||}{$I_{B_2} = -100$ \si{\micro\ampere}}\\
+         \hline
+        $|V_{CE}|$ (\si{V}) & f.s. & $|I_{C_1}|$ (\si{\milli\ampere}) & f.s. & $|I_{C_2}|$ (\si{\milli\ampere}) & f.s.\\ \hline
+        \csvreader[
+            head to column names,
+            separator=tab,
+            % table head = $V_\text{MM}$ & f.s. & $V_\text{osc}$ & f.s.\\\hline
+             late after line=\\
+            % table foot = \hline \hline
+            % table head = \toprule
+        ]{data/data.csv}{}
+        {\Volt  $\text{ }\pm$ \VoltErr & \VoltFs & \FCurr  $\text{ }\pm$ \FCurrErr & \CurrFs & \HCurr  $\text{ }\pm$ \HCurrErr & \CurrFs}\hline\hline
+    \end{tabular}
+    \caption{Dati relativi alle caratteristiche in uscita del BJT per due differenti correnti di base $I_{B_1} = -50$  \si{\micro\ampere} e $I_{B_2} = -100$ \si{\micro\ampere}.}
+    \label{tab:data}
+\end{table}
+
+\section{Valutazione delle incertezze} \label{ch:err}
+\subsection{Oscilloscopio}
+Per calcolare l’incertezza $\sigma_V$ associata ad ogni singola misura di tensione $V$ effettuata con l’oscilloscopio, abbiamo utilizzato la formula: 
+\begin{equation*}
+    \sigma_V = \sqrt{{\sigma_L}^2 + {\sigma_Z}^2 + {\sigma_C}^2 }
+\end{equation*}
+con $\sigma_C = V \cdot \alpha$, dove $\alpha$ è la precisione dichiarata dal costruttore (che in questo caso è 3\%), mentre $\sigma_L$ e $\sigma_Z$ rappresentano rispettivamente l’errore sulla lettura e l’errore sullo zero, entrambi da determinare secondo la seguente relazione:
+\begin{equation*}
+    \sigma_L = \sigma_Z = \dfrac{V_\text{f.s.}}{5} \cdot N_\text{t.a.}
+\end{equation*}
+in cui $V_\text{f.s.}$ rappresenta il fondoscala utilizzato per la singola misura e $N_\text{t.a.}$ indica il numero di tacchette apprezzabili.
+
+\subsection{Multimetro}
+Per quanto riguarda l'incertezza $\sigma$ da associare ad ogni misura effettuata con il multimetro digitale, sono state sfruttate le specifiche riportate in \autoref{tab:multimetro}; dunque ad ogni misura $x$ bisogna associare un'incertezza $\sigma_x$ secondo l'espressione
+\begin{equation*}
+    \sigma_x = x \cdot \text{prec.} + \text{risoluzione} \cdot \text{digits} 
+\end{equation*}
+con $\text{prec.}$, $\text{risoluzione}$ e $\text{digits}$ da estrapolare dalle colonne in \autoref{tab:multimetro}.
+
+% bisogna includere di section alternativo perché hyperref non riesce a leggere le cose in math mode
+\subsection[Incertezze di g e di beta]{Incertezze di $g$ e di $\beta$}
+Per stimare l'incertezza associata alle misure di $g$ e $\beta$ sono state usate le seguenti formule:
+\begin{equation*}
+    \Delta g = \dfrac{\Delta R_L}{{R_L}^2}
+\end{equation*}
+\begin{equation*}
+    \Delta\beta = \left(\dfrac{\Delta I_{C_2} + \Delta I_{C_1}}{ I_{C_2} - I_{C_1}} + \dfrac{\Delta I_{B_2} + \Delta I_{B_1}}{ I_{B_2} - I_{B_1}}\right)
+\end{equation*} 

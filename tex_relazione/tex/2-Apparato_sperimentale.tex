@@ -1,0 +1,57 @@
+Lo scopo della prova è quello di misurare le caratteristiche I-V in uscita di un transistor BJT PNP in configurazione a emettitore comune, per due differenti valori della corrente di base.
+
+\subsection{Materiali e strumenti}
+Riportiamo adesso l'elenco dei materiali e degli strumenti utilizzati durante l’esperienza (tra parentesi il modello utilizzato):
+\begin{multicols}{2}
+    \begin{itemize}
+         \item Generatore di tensione (\verb|ISO-TECH IPS 3303|)
+        \item Potenziometro da 1\si{\kilo\ohm}
+        \item Potenziometro da 100\si{\kilo\ohm}
+        \item Transistor PNP al Si (\verb|BC 212|)
+        \item Breadboard (\verb|K&H AD-13|)
+        \item Oscilloscopio analogico (\verb|ISO-TECH ISR 622|)
+        \item Multimetro digitale (\verb|Fluke 77 IV|)
+        \item [\vspace{\fill}]
+    \end{itemize}
+\end{multicols}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{||c|c|c|c||}
+        \hline\hline
+        \multicolumn{4}{||c||}{\textsc{multimetro} \ \texttt{Fluke 77 IV}}\\
+        \hline\hline
+        fondo scala & risoluzione & prec. & digits \\\hline
+        60.00 \si{\milli\ampere} & 0.01 \si{\milli\ampere} & \multirow{4}{*}{1.5\%} & \multirow{4}{*}{2}\\
+        400.0 \si{\milli\ampere} & 0.1 \si{\milli\ampere} &  & \\
+        6.000 \si{\ampere} & 0.001 \si{\ampere} &  & \\
+        10.00 \si{\ampere} & 0.01 \si{\ampere} &  & \\
+        \hline\hline
+    \end{tabular}
+    \caption{Specifiche tecniche del multimetro \ \emph{\texttt{Fluke 77 IV}} relative alle misurazioni di corrente in corrente continua. La colonna \emph{prec.} indica la precisione e \emph{digits} indica il numero da aggiungere all'ultima cifra significativa della misura.}
+    \label{tab:multimetro}
+\end{table}
+
+\subsection{Svolgimento dell'esperienza}
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}{.4\textwidth}
+    \centering
+        \input{tex/circ_cal}
+        \caption{Schema del circuito realizzato per il regolamento della corrente di base al punto \emph B.}
+        \label{fig:circ_1}
+    \end{subfigure}
+     \hspace{1cm}
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \input{tex/circuito}
+        \caption{Schema del circuito realizzato per la misura della caratteristica in uscita del transistor.}
+        \label{fig:circ_2}
+    \end{subfigure}
+    \caption{I due circuiti realizzati nello svolgimento dell'esperienza. $V_{CE}$ indica l'oscilloscopio, mentre $I_B$ e $I_C$ indicano il multimetro.}
+    \label{fig:circuiti}
+\end{figure}
+
+L'esperimento è composto da due fasi: nella prima fase, dopo aver realizzato il circuito rappresentato in \autoref{fig:circ_1}, è stato necessario fissare la corrente di base a $-50$ \si{\micro\ampere}, agendo sul potenziometro da 100 \si{k\ohm}; nella seconda fase, utilizzando il circuito rappresentato nella \autoref{fig:circ_2}, sono stati misurati contestualmente i valori della corrente $I_C$ con il multimetro e della tensione $V_{CE}$ con l'oscilloscopio facendo variare la corrente in uscita nel collettore tramite il potenziometro da 1 \si{k\ohm}.
+
+Infine, è stato ripetuto l'esperimento per un valore della corrente di base di $-100$ \si{\micro\ampere}.

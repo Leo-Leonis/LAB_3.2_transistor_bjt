@@ -1,0 +1,33 @@
+\documentclass[12pt]{article}
+
+% pacchetti
+\input{tex/0.0-Preamble.tex}
+
+\begin{document}
+
+% frontespizio
+\input{tex/0.1-Title_page.tex}
+
+\section*{Abstract}
+\input{tex/0.2-Abstract.tex}
+
+\section{Introduzione}
+\input{tex/1-Introduzione.tex}
+
+\section{Apparato sperimentale e svolgimento}
+\input{tex/2-Apparato_sperimentale}
+
+\section{Risultati e discussione}
+%\subsection{Caratteristica I-V dei dati}
+\input{tex/3-Caratteristica_I-V_dei_diodi}
+
+\section*{Conclusione}
+\input{tex/4-Conclusione}
+
+\newpage
+\section*{\Huge Appendice}
+\appendix
+
+\input{tex/A-Appendice}
+
+\end{document}

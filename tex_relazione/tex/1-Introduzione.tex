@@ -1,0 +1,28 @@
+Il transistor BJT è un dispositivo realizzato con un cristallo semiconduttore composto da tre regioni: due drogate di tipo n e una drogata di tipo p o due regioni drogate di tipo p e una di tipo n. Le tre regioni sono dette emettitore (E), base (B) e collettore (C). In particolare, lo scopo dell’esperienza è stato quello di misurare la caratteristica di un BJT PNP ad emettitore comune, ossia una configurazione in cui l’emettitore è collegato direttamente a massa. In questa configurazione il transistor si comporta come amplificatore di corrente e tensione. 
+L’andamento delle correnti all’interno di un transistor è descritto dalle relazioni di Embers-Moll:
+\begin{equation}\label{eq:ES_eqs}
+    \begin{cases}
+    I_E = -I_{ES}\Biggl(e^\dfrac{V_{BE}}{\eta V_T} - 1\Biggl) + \alpha_R I_{CS} \Biggl(e^\dfrac{V_{BC}}{\eta V_T} - 1\Biggl)\\
+    I_C = -I_{CS}\Biggl(e^\dfrac{V_{BC}}{\eta V_T} - 1\Biggl) + \alpha_F I_{ES} \Biggl(e^\dfrac{V_{BE}}{\eta V_T} - 1\Biggl)\\
+    \end{cases}
+\end{equation}
+Dove $I_E$ è la corrente d'emettitore e $I_C$ è la corrente di collettore, mentre $V_{BC}$ è la tensione tra base e collettore e $V_{BE}$ è la tensione tra base ed emettitore. Infine, $I_{ES}$ e $I_{CS}$ sono le correnti di saturazione dell’emettitore e del collettore rispettivamente.\\
+Noi siamo interessati al funzionamento del BJT in regione attiva, ossia quando la giunzione base-emettitore è polarizzata direttamente mentre la giunzione base-collettore è polarizzata inversamente, e vale la seguente relazione:
+\begin{equation}\label{eq:ES_active}
+    I_C\ (V_{BE}) = \alpha_F I_{ES}\Biggl(e^\dfrac{V_{BE}}{\eta V_T} - 1\Biggl)
+\end{equation}
+Si noti che in questa configurazione i valori di $I_C$ e $V_{BE}$ sono negativi. L’\autoref{eq:ES_active} prevede una rapida crescita, seguita da un tratto pressoché costante. Quello che si nota è invece una leggera pendenza del secondo tratto, dovuta all’effetto Early, un effetto che consiste nella variazione dell’ampiezza della regione di base dovuta alla variazione della tensione della giunzione BC. Ciò tende a far crescere $I_C$ all’aumentare di $V_{CE}$. A questo punto, una volta fissata la corrente di base $I_B$, vale la seguente relazione fenomenologica:
+\begin{equation*}
+    V_{CE} = V_a + R_L \cdot I_C
+\end{equation*}
+\begin{equation}\label{eq:fit}
+    I_C = \dfrac{V_{CE} - V_a}{R_L}
+\end{equation}
+dove $V_a$ è la tensione di Early, con valori generalmente compresi tra 10 \si{V} e 200 \si{V}, e $R_L$ è la resistenza di uscita con valori tipicamente dell'ordine di grandezza del \si{\kilo\ohm}, da cui è possibile ricavare la conduttanza $g$ sapendo che 
+\begin{equation}\label{eq:conduttanza}
+    g = \dfrac{1}{R_L}
+\end{equation}
+Inoltre, è possibile stimare il guadagno in termini di corrente per un valore fissato di $V_{CE}$ tramite 
+\begin{equation}\label{eq:guadagno}
+    \beta = \dfrac{\Delta I_C}{\Delta I_B} = \dfrac{I_{C_2} - I_{C_1}}{I_{B_2} - I_{B_1}}
+\end{equation}

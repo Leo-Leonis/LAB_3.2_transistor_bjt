@@ -1,0 +1,13 @@
+\sethlcolor{blue}
+\begin{minted}[
+frame=lines,
+framesep=2mm,
+baselinestretch=0.9,
+bgcolor=bg,
+%fontsize=\small,
+fontfamily=tt,
+linenos,
+escapeinside=||,
+]{cpp}
+
+\end{minted}

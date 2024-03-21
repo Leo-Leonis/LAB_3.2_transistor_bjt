@@ -1,0 +1,41 @@
+\begin{circuitikz}[scale = 1, every node/.style={scale=0.9}]
+% \foreach \i in {0,...,6} {
+%     \draw [very thin,white!80!black] (\i,0) -- (\i,6)  node [below] at (\i,0) {$\i$};
+% }
+% \foreach \i in {0,...,6} {
+%     \draw [very thin,white!80!black] (0,\i) -- (6,\i) node [left] at (0,\i) {$\i$};
+% }
+\draw % cornice (in basso a sx in senso orario)
+    (0,1)
+    to[battery2, l_=$-5\si{\volt}$, invert] (0,6)
+    -- (6,6)
+    -- (6,3)
+    to [pR, name=dx, mirror, wiper pos=0.2] (6,1)
+    -- (0,1)
+;
+\draw % potenziometro di sx (dal basso)
+    (1.5,1) node[circ]{}
+    -- (1.5,3.5)
+    to[pR, l=1\si{\kilo\ohm}, name=sx, mirror, wiper pos=0.7] (1.5,6)
+    node[circ]{}
+;
+\draw % bjt (dal basso)
+    (3,1) node[circ]{}
+    -- (3,3)
+    node[pnp, anchor=E, xscale=-1, yscale=-1, tr circle] (bjt) {}
+    (bjt.collector) |- (sx.wiper) % da C a sx
+;
+\draw % amperometro (dal bjt in alto)
+    (bjt.base)
+    -| (4.75,3.6)
+    to[smeter, t=A, l=$I_B$] (4.75,2.5)
+    |- (dx.wiper)
+;
+\draw (dx) node[left=3pt] {100\si{k\ohm}};
+\node [circ] at (bjt.circle C){};
+\draw (bjt.circle C) node[above left] {$C$};
+\node [circ] at (bjt.circle E){};
+\draw (bjt.circle E) node[below left] {$E$};
+\node [circ] at (bjt.circle base){};
+\draw (bjt.circle base) node[above right] {$B$};
+\end{circuitikz}
